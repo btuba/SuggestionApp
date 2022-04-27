@@ -42,7 +42,7 @@ else
             };
         await userData.CreateUser(user);
 
-        var foundUser = await userData.GetUserFromAuthentication("abc-1223");
+        var foundUser = await userData.GetUserFromAuthentication("abc-123");
         var categories = await categoryData.GetAllCategories();
         var statuses = await statusData.GetAllStatuses();
 
@@ -50,6 +50,7 @@ else
         votes.Add("1");
         votes.Add("2");
         votes.Add("3");
+
         SuggestionModel suggestion = new()
             {
                 Author = new BasicUserModel(foundUser),
