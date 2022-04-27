@@ -9,7 +9,7 @@ public class MongoSuggestionData : ISuggestionData
     private readonly IUserData _userData;
     private readonly IMemoryCache _cache;
     private readonly IMongoCollection<SuggestionModel> _suggestions;
-    private const string CacheName = "StatusData";
+    private const string CacheName = "SuggestionData";
 
     public MongoSuggestionData(IDbConnection db, IUserData userData, IMemoryCache cache)
     {
@@ -111,6 +111,8 @@ public class MongoSuggestionData : ISuggestionData
         var client = _db.Client;
 
         using var session = await client.StartSessionAsync();
+
+        session.StartTransaction();
 
         try
         {

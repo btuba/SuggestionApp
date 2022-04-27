@@ -29,6 +29,6 @@ public class DbConnection : IDbConnection
         CategoryCollection = _db.GetCollection<CategoryModel>(CategoryCollectionName);
         StatusCollection = _db.GetCollection<StatusModel>(StatusCollectionName);
         UserCollection = _db.GetCollection<UserModel>(UserCollectionName);
-        SuggestionCollection = _db.GetCollection<SuggestionModel>(StatusCollectionName);
+        SuggestionCollection = _db.GetCollection<SuggestionModel>(SuggestionCollectionName);
     }
 }
