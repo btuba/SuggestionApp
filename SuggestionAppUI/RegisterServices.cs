@@ -19,10 +19,10 @@ namespace SuggestionAppUI
 
             builder.Services.AddAuthorization(options =>
             {
-                options.AddPolicy("Admin",policy =>
-                {
-                    policy.RequireClaim(claimType: "jobTitle", allowedValues: "Admin");
-                });
+                options.AddPolicy("Admin", policy =>
+                 {
+                     policy.RequireClaim(claimType: "jobTitle", allowedValues: "Admin");
+                 });
             });
 
             builder.Services.AddSingleton<IDbConnection, DbConnection>();
