@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.Authorization
+﻿using Microsoft.AspNetCore.Components.Authorization;
 namespace SuggestionAppUI.Helpers;
 
 public static class AuthenticationStateProviderHelpers
@@ -8,7 +8,7 @@ public static class AuthenticationStateProviderHelpers
     {
         var authState = await provider.GetAuthenticationStateAsync();
         string objectId = authState.User.Claims.FirstOrDefault(c =>
-            c.Type.Contains("objectidetifier"))?.Value;
+            c.Type.Contains("objectidentifier"))?.Value;
         return await userData.GetUserFromAuthentication(objectId);
     }
 }
