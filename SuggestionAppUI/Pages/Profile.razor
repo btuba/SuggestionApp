@@ -120,10 +120,8 @@
 
     protected async override Task OnInitializedAsync()
     {
-        var authState = await authProvider.GetAuthenticationStateAsync();
-        string objectId = authState.User.Claims.FirstOrDefault(c => 
-            c.Type.Contains("objectidetifier"))?.Value;
-        loggedUser = await userData.GetUserFromAuthentication(objectId);
+
+        loggedUser = await authProvider.GetUserFromAuth(userData);
 
         var results = await suggestionsData.GetUsersSuggestions(loggedUser.Id);
 
